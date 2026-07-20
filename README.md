@@ -1,5 +1,7 @@
 # Codex 月薪猫动态皮肤
 
+公开仓库：<https://github.com/cycleeuil-cell/codex-payday-cat-theme>
+
 一套适用于 **Windows Microsoft Store 版 Codex 桌面应用**的奶油金色主题。右下角的“月薪猫”不是静态图标，它会跟随 Codex 的状态切换动画：
 
 - 空闲待命
@@ -15,7 +17,7 @@
 
 ## 直接把本仓库链接交给 Codex
 
-在另一台 Windows 电脑上打开 Codex，新建任务，把**本仓库链接**和下面这句话一起发给它：
+在另一台 Windows 电脑上打开 Codex，新建任务，把 <https://github.com/cycleeuil-cell/codex-payday-cat-theme> 和下面这句话一起发给它：
 
 > 请打开这个仓库，完整阅读 README、INSTALL_WITH_CODEX.md 和 scripts 下的 PowerShell 脚本；先做安全审计，再按照仓库说明为我安装 Codex 月薪猫动态皮肤。不要修改 Microsoft Store 原版，不要读取或上传我的账号、聊天或任务数据。安装完成后验证素材哈希、主题运行副本和回滚能力。
 
@@ -79,4 +81,3 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Codex
 视觉形象摘取自抖音作者 **Ai柳丁汁** 的公开图文作品：<https://v.douyin.com/xPohiMdKWOE/>。
 
 代码许可和图片权利边界见 [LICENSE](LICENSE) 与 [ATTRIBUTION.md](ATTRIBUTION.md)。原作品及角色形象的权利归原作者/权利人所有，请勿用于商业用途。
-
