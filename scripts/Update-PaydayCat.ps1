@@ -156,6 +156,32 @@ try {
     }
     [System.IO.File]::WriteAllText($IndexHtml, $html, [System.Text.UTF8Encoding]::new($false))
 
+    # Codex keeps a single desktop instance on Windows, but its stock
+    # second-instance handler only forwards arguments. Restore and focus the
+    # existing window so the desktop shortcut never appears to do nothing.
+    $Bootstrap = Get-ChildItem -LiteralPath (Join-Path $Staging '.vite\build') -Filter 'bootstrap-*.js' -File
+    if (@($Bootstrap).Count -ne 1) {
+        throw 'The Codex desktop bootstrap layout changed. Window activation patch stopped safely.'
+    }
+    $bootstrapText = [System.IO.File]::ReadAllText($Bootstrap.FullName)
+    if (-not $bootstrapText.Contains('payday-focus-existing-window')) {
+        $focusPattern = '(?<electron>[A-Za-z_$][A-Za-z0-9_$]*)\.app\.on\(`second-instance`,\((?<event>[A-Za-z_$][A-Za-z0-9_$]*),(?<argv>[A-Za-z_$][A-Za-z0-9_$]*)\)=>\{(?<service>[A-Za-z_$][A-Za-z0-9_$]*)\.queueSecondInstanceArgs\(\k<argv>\)\}\)'
+        $focusMatch = [System.Text.RegularExpressions.Regex]::Match($bootstrapText, $focusPattern)
+        if (-not $focusMatch.Success) {
+            throw 'The Codex second-instance handler changed. Window activation patch stopped safely.'
+        }
+        $electron = $focusMatch.Groups['electron'].Value
+        $eventName = $focusMatch.Groups['event'].Value
+        $argvName = $focusMatch.Groups['argv'].Value
+        $service = $focusMatch.Groups['service'].Value
+        $focusReplacement = $electron + '.app.on(`second-instance`,(' + $eventName + ',' + $argvName + ')=>{' +
+            $service + '.queueSecondInstanceArgs(' + $argvName + ');/* payday-focus-existing-window */' +
+            'let __paydayWindow=' + $electron + '.BrowserWindow.getAllWindows().find(__paydayWindow=>!__paydayWindow.isDestroyed());' +
+            '__paydayWindow&&(__paydayWindow.isMinimized()&&__paydayWindow.restore(),__paydayWindow.show(),__paydayWindow.focus())})'
+        $bootstrapText = $bootstrapText.Remove($focusMatch.Index, $focusMatch.Length).Insert($focusMatch.Index, $focusReplacement)
+        [System.IO.File]::WriteAllText($Bootstrap.FullName, $bootstrapText, [System.Text.UTF8Encoding]::new($false))
+    }
+
     Copy-Item -Force -LiteralPath $ThemeCss -Destination (Join-Path $AssetDir 'payday-theme.css')
     Copy-Item -Force -LiteralPath $ThemeHeroImage -Destination (Join-Path $AssetDir 'payday-hero.png')
     Copy-Item -Force -LiteralPath $ThemePetImage -Destination (Join-Path $AssetDir 'payday-pet.png')
@@ -194,4 +220,3 @@ try {
         Remove-Item -Force -LiteralPath $NewAsar
     }
 }
-
