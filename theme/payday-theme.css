@@ -1,0 +1,532 @@
+@charset "UTF-8";
+
+/*
+ * 月薪猫 · 今日营业 — Codex desktop theme
+ * Palette reconstructed from Ai柳丁汁's public Douyin reference.
+ * This file is intentionally a CSS-only overlay: it does not touch accounts,
+ * tasks, prompts, local databases, or network behavior.
+ */
+
+:root:root,
+:root:root.electron-light,
+:root:root.electron-dark {
+  color-scheme: light !important;
+  --payday-ink: #4b3827;
+  --payday-ink-soft: #816b52;
+  --payday-cream: #fff8df;
+  --payday-cream-deep: #f8edc8;
+  --payday-sidebar: #fbf2d6;
+  --payday-card: #fffaf0;
+  --payday-line: #ddc98f;
+  --payday-gold: #eaa43b;
+  --payday-gold-deep: #b97023;
+  --payday-brown: #68401f;
+  --payday-select: #f3dfa0;
+
+  --startup-background: #fff8df !important;
+  --vscode-foreground: var(--payday-ink) !important;
+  --vscode-disabledForeground: #b7a68d !important;
+  --vscode-descriptionForeground: var(--payday-ink-soft) !important;
+  --vscode-errorForeground: #b84d3d !important;
+  --vscode-icon-foreground: #76583b !important;
+  --vscode-focusBorder: #d99a36 !important;
+  --vscode-textLink-foreground: #a65f1c !important;
+  --vscode-textLink-activeForeground: #7f4517 !important;
+
+  --vscode-editor-background: var(--payday-cream) !important;
+  --vscode-editor-foreground: var(--payday-ink) !important;
+  --vscode-editorWidget-background: #fffaf0 !important;
+  --vscode-editor-selectionBackground: #efcf78 !important;
+  --vscode-editor-findMatchBackground: #f3c35b !important;
+  --vscode-editor-findMatchHighlightBackground: #f8e6a9 !important;
+
+  --vscode-sideBar-background: var(--payday-sidebar) !important;
+  --vscode-sideBar-foreground: var(--payday-ink) !important;
+  --vscode-sideBar-border: #eadcaf !important;
+  --vscode-sideBarTitle-foreground: var(--payday-brown) !important;
+  --vscode-sideBarSectionHeader-background: #f7e9bd !important;
+
+  --vscode-input-background: #fffdf4 !important;
+  --vscode-input-foreground: var(--payday-ink) !important;
+  --vscode-input-border: #dec887 !important;
+  --vscode-input-placeholderForeground: #aa9476 !important;
+  --vscode-dropdown-background: #fffaf0 !important;
+  --vscode-dropdown-foreground: var(--payday-ink) !important;
+  --vscode-dropdown-border: #dec887 !important;
+
+  --vscode-button-background: #e9a23a !important;
+  --vscode-button-foreground: #fffaf0 !important;
+  --vscode-button-hoverBackground: #d98b2b !important;
+  --vscode-button-border: #c57c26 !important;
+  --vscode-button-secondaryBackground: #f6e6b4 !important;
+  --vscode-button-secondaryForeground: #68401f !important;
+  --vscode-button-secondaryHoverBackground: #efd795 !important;
+
+  --vscode-list-activeSelectionBackground: var(--payday-select) !important;
+  --vscode-list-activeSelectionForeground: #513a24 !important;
+  --vscode-list-activeSelectionIconForeground: #92561e !important;
+  --vscode-list-inactiveSelectionBackground: #f8eac1 !important;
+  --vscode-list-hoverBackground: #f7e8ba !important;
+  --vscode-list-focusOutline: #d89a37 !important;
+
+  --vscode-menu-background: #fffaf0 !important;
+  --vscode-menu-foreground: var(--payday-ink) !important;
+  --vscode-menu-border: #ddc98f !important;
+  --vscode-menubar-selectionBackground: #f3dfa0 !important;
+  --vscode-menubar-selectionForeground: #513a24 !important;
+  --vscode-toolbar-hoverBackground: #f2dfaa !important;
+
+  --vscode-badge-background: #d9912e !important;
+  --vscode-badge-foreground: #fffaf0 !important;
+  --vscode-progressBar-background: #d9912e !important;
+  --vscode-scrollbarSlider-background: #c29c5b55 !important;
+  --vscode-scrollbarSlider-hoverBackground: #b1833f77 !important;
+  --vscode-scrollbarSlider-activeBackground: #966b3099 !important;
+
+  --vscode-textCodeBlock-background: #f6e9c2 !important;
+  --vscode-textPreformat-background: #f4e3b5 !important;
+  --vscode-textPreformat-foreground: #68401f !important;
+  --vscode-terminal-background: #fff7dd !important;
+  --vscode-terminal-foreground: #4d3a28 !important;
+
+  --color-background-surface: var(--payday-cream) !important;
+  --color-token-main-surface-primary: var(--payday-cream) !important;
+  --color-token-side-bar-background: var(--payday-sidebar) !important;
+  --color-token-bg-primary: var(--payday-sidebar) !important;
+  --color-token-bg-secondary: #f8ebc3 !important;
+  --color-token-bg-tertiary: #f4e2af !important;
+  --color-token-border: #dfcc94 !important;
+  --color-token-border-default: #dfcc94 !important;
+  --color-token-border-heavy: #cbaa68 !important;
+  --color-token-border-light: #eadcaf !important;
+  --color-token-primary: #b96e21 !important;
+  --color-token-link: #a65f1c !important;
+  --color-token-on-accent: #fffaf0 !important;
+  --corner-radius-scale: 1.12 !important;
+}
+
+html,
+body,
+#root {
+  background:
+    radial-gradient(circle at 72% 18%, rgb(238 190 81 / 10%) 0 3px, transparent 4px),
+    radial-gradient(circle at 44% 74%, rgb(177 110 35 / 9%) 0 2px, transparent 3px),
+    linear-gradient(145deg, #fffaf0 0%, #fff6d7 58%, #f9edc8 100%) !important;
+  color: var(--payday-ink) !important;
+}
+
+body::before {
+  content: "🐾  月薪猫 · 今日营业";
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  z-index: 2147479000;
+  transform: translateX(-50%);
+  color: #624423;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 70%);
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+.main-surface,
+.browser-main-surface {
+  background:
+    radial-gradient(circle at 18% 22%, rgb(231 163 57 / 8%) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 65%, rgb(156 94 28 / 7%) 0 2px, transparent 3px),
+    linear-gradient(150deg, #fffaf0 0%, #fff7dd 54%, #faefcf 100%) !important;
+  box-shadow:
+    inset 0 0 0 1px rgb(210 181 116 / 28%),
+    0 8px 30px rgb(112 73 25 / 8%) !important;
+}
+
+/* Real Codex home hero (stable markers present in 26.707.x). */
+.main-surface .min-h-28:has([data-testid="home-icon"]) {
+  min-height: 222px !important;
+  align-items: stretch !important;
+  overflow: hidden;
+  border: 1px solid rgb(203 159 82 / 66%);
+  border-radius: 26px;
+  background: linear-gradient(100deg, #68401f 0%, #8a5b2d 49%, #f7e8bd 76%, #fff6d7 100%);
+  box-shadow: 0 16px 38px rgb(118 80 39 / 14%);
+}
+
+.main-surface .min-h-28:has([data-testid="home-icon"]) > div {
+  width: 100%;
+  min-height: 222px;
+  flex-direction: row-reverse !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  padding: 26px 30px 26px 38px;
+}
+
+[data-testid="home-icon"] {
+  width: 47% !important;
+  height: 176px !important;
+  flex: 0 0 47%;
+  cursor: default !important;
+  overflow: hidden;
+  border: 1px solid rgb(202 163 91 / 42%);
+  border-radius: 22px;
+  color: transparent !important;
+  opacity: 1 !important;
+  background-color: #f9eac0;
+  background-image: url("./payday-hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 28%);
+}
+
+[data-testid="home-icon"] > * {
+  visibility: hidden !important;
+}
+
+[data-feature="game-source"] {
+  position: relative;
+  width: 50%;
+  flex: 0 1 50%;
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  color: #fff8df !important;
+  font-size: clamp(25px, 3vw, 38px) !important;
+  line-height: 1.14 !important;
+  text-align: left !important;
+  text-shadow: 0 2px 8px rgb(59 33 13 / 18%);
+}
+
+[data-feature="game-source"]::after {
+  content: "代码会写完，工资也会到账的喵 🐾";
+  display: block;
+  margin-top: 14px;
+  color: rgb(255 248 223 / 80%);
+  font-size: 13px;
+  font-weight: 450;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+[data-feature="game-source"] > span {
+  width: 100%;
+  text-align: left;
+}
+
+:root[data-codex-os="win32"] .main-surface {
+  border-top-left-radius: 18px !important;
+}
+
+aside,
+[data-sidebar],
+[class*="sidebar"] {
+  --color-token-bg-primary: #fbf2d6 !important;
+}
+
+textarea,
+input,
+[contenteditable="true"],
+[class*="composer"] {
+  caret-color: #b96e21 !important;
+}
+
+textarea,
+input,
+[contenteditable="true"] {
+  selection-color: #4b3827;
+}
+
+button,
+[role="button"],
+[role="menuitem"],
+[class*="card"] {
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease !important;
+}
+
+button:hover,
+[role="button"]:hover {
+  filter: saturate(1.03);
+}
+
+.rounded-xl,
+.rounded-2xl,
+.rounded-3xl,
+[class*="card"] {
+  border-color: rgb(205 172 101 / 46%) !important;
+  box-shadow: 0 5px 16px rgb(112 73 25 / 7%);
+}
+
+pre,
+code,
+[class*="terminal"] {
+  border-color: rgb(191 151 78 / 34%) !important;
+}
+
+/* Payday Cat status pet. The DOM is inserted by payday-pet.js. */
+#payday-codex-pet {
+  --pet-accent: #d9912e;
+  position: fixed;
+  right: 22px;
+  bottom: 64px;
+  z-index: 2147478000;
+  display: grid;
+  justify-items: end;
+  gap: 7px;
+  color: var(--payday-ink);
+  font-family: inherit;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 22px rgb(105 69 27 / 16%));
+}
+
+.payday-pet__bubble {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 5px 11px 5px 8px;
+  border: 1px solid color-mix(in srgb, var(--pet-accent) 48%, white);
+  border-radius: 999px;
+  background: rgb(255 251 235 / 94%);
+  box-shadow: 0 6px 18px rgb(105 69 27 / 12%);
+  color: #654624;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.payday-pet__badge {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pet-accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.payday-pet__stage {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  transform-origin: 50% 100%;
+}
+
+.payday-pet__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 2px rgb(83 54 23 / 8%));
+}
+
+.payday-pet__effect {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  min-width: 27px;
+  min-height: 27px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgb(255 252 238 / 94%);
+  border-radius: 50%;
+  background: var(--pet-accent);
+  box-shadow: 0 4px 12px rgb(94 59 22 / 18%);
+  color: white;
+  font-size: 15px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+#payday-codex-pet[data-state="idle"] {
+  --pet-accent: #d9912e;
+}
+
+#payday-codex-pet[data-state="idle"] .payday-pet__stage {
+  animation: payday-pet-breathe 2.8s ease-in-out infinite;
+}
+
+#payday-codex-pet[data-state="idle"] .payday-pet__effect {
+  animation: payday-pet-dots 1.8s ease-in-out infinite;
+}
+
+#payday-codex-pet[data-state="thinking"] {
+  --pet-accent: #c68b2d;
+}
+
+#payday-codex-pet[data-state="thinking"] .payday-pet__stage {
+  animation: payday-pet-think 1.15s ease-in-out infinite;
+}
+
+#payday-codex-pet[data-state="thinking"] .payday-pet__effect {
+  animation: payday-pet-pulse 1.05s ease-in-out infinite;
+}
+
+#payday-codex-pet[data-state="working"] {
+  --pet-accent: #b96e21;
+}
+
+#payday-codex-pet[data-state="working"] .payday-pet__stage {
+  animation: payday-pet-type 0.42s ease-in-out infinite alternate;
+}
+
+#payday-codex-pet[data-state="working"] .payday-pet__effect {
+  animation: payday-pet-code 0.7s steps(2, end) infinite;
+}
+
+#payday-codex-pet[data-state="approval"] {
+  --pet-accent: #df8428;
+}
+
+#payday-codex-pet[data-state="approval"] .payday-pet__stage {
+  animation: payday-pet-nudge 0.62s ease-in-out infinite;
+}
+
+#payday-codex-pet[data-state="approval"] .payday-pet__bubble,
+#payday-codex-pet[data-state="approval"] .payday-pet__effect {
+  animation: payday-pet-pulse 0.9s ease-in-out infinite;
+}
+
+#payday-codex-pet[data-state="success"] {
+  --pet-accent: #519157;
+}
+
+#payday-codex-pet[data-state="success"] .payday-pet__stage {
+  animation: payday-pet-celebrate 0.78s cubic-bezier(.2, .8, .2, 1) infinite;
+}
+
+#payday-codex-pet[data-state="success"] .payday-pet__effect {
+  animation: payday-pet-sparkle 0.72s ease-in-out infinite alternate;
+}
+
+#payday-codex-pet[data-state="error"] {
+  --pet-accent: #bc4a3c;
+}
+
+#payday-codex-pet[data-state="error"] .payday-pet__stage {
+  animation: payday-pet-error 0.34s ease-in-out 5;
+}
+
+#payday-codex-pet[data-state="error"] .payday-pet__bubble,
+#payday-codex-pet[data-state="error"] .payday-pet__effect {
+  animation: payday-pet-pulse 0.72s ease-in-out infinite;
+}
+
+@keyframes payday-pet-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.018); }
+}
+
+@keyframes payday-pet-dots {
+  0%, 100% { transform: translateY(0); opacity: 0.72; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes payday-pet-think {
+  0%, 100% { transform: rotate(-1.8deg) translateY(0); }
+  50% { transform: rotate(2.4deg) translateY(-2px); }
+}
+
+@keyframes payday-pet-type {
+  from { transform: translateY(0); }
+  to { transform: translateY(-4px); }
+}
+
+@keyframes payday-pet-code {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-5px) rotate(4deg); }
+}
+
+@keyframes payday-pet-nudge {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  30% { transform: translateX(-5px) rotate(-2deg); }
+  70% { transform: translateX(5px) rotate(2deg); }
+}
+
+@keyframes payday-pet-celebrate {
+  0%, 100% { transform: translateY(0) scale(1); }
+  45% { transform: translateY(-13px) scale(1.025); }
+}
+
+@keyframes payday-pet-sparkle {
+  from { transform: scale(.88) rotate(-8deg); }
+  to { transform: scale(1.12) rotate(8deg); }
+}
+
+@keyframes payday-pet-error {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  25% { transform: translateX(-5px) rotate(-1.6deg); }
+  75% { transform: translateX(5px) rotate(1.6deg); }
+}
+
+@keyframes payday-pet-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+::selection {
+  color: #4b3827;
+  background: #efd17f;
+}
+
+@media (max-width: 860px) {
+  body::before {
+    display: none;
+  }
+
+  #payday-codex-pet {
+    right: 12px;
+    bottom: 60px;
+  }
+
+  .payday-pet__stage {
+    width: 88px;
+    height: 88px;
+  }
+
+  .payday-pet__bubble {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .main-surface .min-h-28:has([data-testid="home-icon"]) {
+    min-height: 168px !important;
+  }
+
+  .main-surface .min-h-28:has([data-testid="home-icon"]) > div {
+    min-height: 168px;
+    padding: 20px 22px;
+  }
+
+  [data-testid="home-icon"] {
+    display: none !important;
+  }
+
+  [data-feature="game-source"] {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

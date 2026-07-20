@@ -1,0 +1,9 @@
+runtime/
+backup/
+cache/
+staging/
+*.asar
+*.log
+install-state.json
+.DS_Store
+Thumbs.db
